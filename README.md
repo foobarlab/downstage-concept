@@ -1,5 +1,5 @@
-# DownStage concept and ideas
+# DownStage concept
 
-My [revealjs.com](https://revealjs.com) presentations of ideas for DownStage.
+My [revealjs.com](https://revealjs.com) presentations for DownStage.
 
-[2020-08-07 Ideas](https://foobarlab.github.io/downstage-concept/downstage-ideas.html)
+[2020-08-07 DownStage Ideas](https://foobarlab.github.io/downstage-concept/downstage-ideas.html)
