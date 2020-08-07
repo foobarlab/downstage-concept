@@ -9,82 +9,300 @@
 		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+			h1, h2, h3, h4, h5, h6 { text-transform: none !important }
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				
-				<section id="intro">
-					<h1 class="title"><small>DownStage</small></h1>
-					<p class="subtitle">Ideas for an engine and framework for a platform for Cyberformance</p>
-					<p class="author">Martin Eisenbarth / foobarlab.net</p>
-					<p class="date">7 August 2020</p>
+				<section id="intro" class="title-slide slide level1" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						<h2>Initial Ideas for DownStage</h2>
+						
+						An engine and framework
+						for a platform for Cyberformance
+						
+						<small>
+						A technical outline brought to you by
+
+						Martin Eisenbarth / Foobarlab	<!-- .element: class="author" -->
+
+						7 August 2020 <!-- .element: class="date" -->
+						</small>
+
+						----
+
+						### [Cyberformance](https://en.wikipedia.org/wiki/Cyberformance)
+
+						### [Theatre terms: upstage and downstage](https://ourpastimes.com/difference-between-downstage-upstage-12498715.html)
+						
+						![Onstage directions](https://miro.medium.com/max/700/1*kNR9HAtif54Jif_wuO3iyg.png)
+
+					</script>
 				</section>
 				
-				<section>
-					<section id="functional" class="title-slide slide level1">
-						<h1>Functional approach</h1>
-					</section>
+				<section id="functional" class="slide" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Functional Paradigm
+
+						----
+
+						### Why functional?
+						
+						- ideally &quot;free of unknown side-effects&quot;
+						- less bare metal, more algorithmic
+						- avoid a bunch of classes of failures
+						- network affinity:
+							- streaming data
+							- capsulation of data
+						
+						----
+						
+						Chosen core languages and frameworks:
+						
+						- [Erlang](https://www.erlang.org/)
+						- [Elixir](https://elixir-lang.org/)
+						- [Phoenix Framework](https://www.phoenixframework.org/)
+
+						----
+
+						### Erlang Virtual Machine (BEAM)
+						
+						- distributed (actors)
+						- functional
+						- resource-friendly
+						- practically lock-free			
+						- fault-tolerant
+						- strict rules to follow
+
+						----
+
+						### Phoenix Framework
+
+						- LiveView and Hooks
+						- minimal network traffic
+						- PubSub, Channels, ...
+					</script>
 				</section>
-				
-				<section>
-					<section id="framework" class="title-slide slide level1">
-						<h1>Framework approach</h1>
-					</section>
+			
+				<section id="framework" class="slide" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Framework approach
+
+						----
+
+						### Application build on top of framework
+						- abstraction, reduction
+						- composition
+						- declarative
+						- expose functionality
+						- hide complexity
+
+						----
+
+						### Framework
+						- lower-level functionality and core building blocks
+						- programming interfaces for applications
+						- networking, routing, wiring
+						- strictly functional with rules, limitations and benefits
+
+						----
+
+						### Application:
+						- customization and eye candy
+						- defines higher-level functionality for the user
+						- more user interface and playful experience
+						- more freedom of choosing programming language
+
+						----
+
+						### Benefits						
+						- &quot;Separation of concerns&quot;
+						- &quot;Dont repeat yourself&quot;
+						- &quot;Convention over Configuration&quot;
+						- Multiple levels of complexity
+						- Force making stuff explicit
+						- Extendability / Flexibility
+						- Empower User, Low-Code, No-Code
+					</script>
 				</section>
-				
-				<section>
-					<section id="security" class="title-slide slide level1">
-						<h1>Capability based security</h1>
-					</section>
+			
+				<section id="decoupling-services" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Decoupling services and distributing work
+
+						----
+
+						### Internal services
+						- &quot;Command Bus&quot;
+						- &quot;Event Bus&quot;
+						- decompose work into smaller units
+						- modify &quot;global shared state&quot;
+
+						----
+
+						### External services
+						- Text-to-speech
+						- Video streaming
+						- ...
+
+						----
+
+						### Message Broker: [RabbitMQ](https://www.rabbitmq.com/)
+						- proxies for single-point of connection
+						- asynchroneous with queues
+						- polyglott, ready for multiple languages
+						- distribute work to consumers (pubsub)
+						- Erlang-based, fits into ecosystem
+					</script>
 				</section>
-				
-				<section>
-					<section id="building-blocks" class="title-slide slide level1">
-						<h1>Building blocks for on stage objects</h1>
-					</section>
+			
+				<section id="security" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Capability based security
+
+						----
+
+						### Macaroons
+						- alternative to role-based-access-control
+						- grants access provided the &quot;key&quot; matches
+						- enforcing policies
+						- easy to &quot;hand-over permission&quot; to do something
+						- fast wrapping &quot;commands&quot;
+
+						----
+
+						### Links
+						- [Capability-based security — enabling secure access control in the decentralized cloud](https://medium.com/@kleffew/capability-based-security-enabling-secure-access-control-in-the-decentralized-cloud-61b0ee791fef)
+						- [Erlang Implementation](https://github.com/kzemek/macaroons)
+					</script>
 				</section>
-				
-				<section>
-					<section id="decoupling-services" class="title-slide slide level1">
-						<h1>Decoupling services</h1>
-					</section>
+			
+				<section id="events" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## CQRS and Event Sourcing
+
+						----
+
+						### Command-Query-Responsibility-Segregation (CQRS)
+						- separate &quot;writes&quot; (commands) from &quot;reads&quot; (queries) 
+						- Read- and Write-model
+						- Commands: &quot;Fire-and-forget&quot; style
+						- Queries: &quot;read state of the application&quot;
+						- basically transforming data
+
+						----
+
+						### Event sourcing (ES)
+						- storage of events
+						- replay of events
+						- snapshotting: series of single events to a static state
+					</script>
 				</section>
-				
-				<section>
-					<section id="generative-code" class="title-slide slide level1">
-						<h1>Generative and Live-Coding experience</h1>
-					</section>
+			
+				<section id="persistance" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Persistence
+
+						----
+
+						### [CouchDB](https://couchdb.apache.org/)
+						- Document database for JSON data
+						- schemaless, key-value based
+						- RESTful interface with JavaScript queries
+						- versioning included
+						- could run in a cluster
+						- [accepting eventual consistency](http://guide.couchdb.org/draft/consistency.html)
+
+						----
+
+						### [PouchDB](https://pouchdb.com/)
+						- JavaScript database in browser
+						- local browser storage
+						- offline support
+						- synchronizes with CouchDB
+					</script>
 				</section>
-				
-				<section>
-					<section id="persistance" class="title-slide slide level1">
-						<h1>Persistence</h1>
-					</section>
+			
+				<section id="scheduler" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Internal Scheduler and Synchronization
+
+						----
+
+						### Scheduler
+						- &quot;Metronome&quot;-like clock with custom speed
+						- idea is to allow to go back and forth in time (scrubbing, pausing, replay)
+						- delays or time-warps events
+						- inspired by [Sonic Pi Scheduling](https://github.com/sonic-pi-net/sonic-pi/tree/main/app/server/erlang)
+						- possibly a kind of event loop
+						- more experiments required
+
+						----
+
+						### Synchronization
+						- kind of a hard problem
+						- dealing with the unexpected (offline, reconnects)
+						- idea is to use snapshots and synchronize clients on-demand
+					</script>
 				</section>
-				
-				<section>
-					<section id="events" class="title-slide slide level1">
-						<h1>CQRS and Event Sourcing</h1>
-					</section>
+			
+				<section id="generative-code" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Generative and Live-Coding experience
+
+						----
+
+						### Inspirations
+						- Generative Art: [Processing](https://www.openprocessing.org/browse/?viewBy=tags&tag=generative%20art#)
+						- Live-coding Audio: [SonicPi](https://sonic-pi.net/), [SuperCollider](https://supercollider.github.io/)
+						- Live-coding Shaders: [Shadertoy](https://www.shadertoy.com/)
+						- Visual coding: [Scratch](https://scratch.mit.edu/)
+						- Demoscene: [Werkzeug4](http://www.farbrausch.com/prod&which=168.py)
+					</script>
 				</section>
-				
-				<section>
-					<section id="scheduler" class="title-slide slide level1">
-						<h1>Internal Scheduler and Synchronization</h1>
-					</section>
+			
+				<section id="development" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Development environment
+
+						----
+
+						### [Vagrant](https://www.vagrantup.com/)
+						- [VirtualBox](https://www.virtualbox.org/) virtual machine running [Funtoo GNU/Linux](https://www.funtoo.org/)
+						- configured by [Packer](https://www.packer.io/) and [Ansible](https://docs.ansible.com/)
+						- Under construction: [Vagrant development box](https://github.com/foobarlab/development-packer)
+						- portable environment suited for major OS like Apple Mac, Windows and Linux
+						- all-in-one package: all tools and services pre-compiled and pre-configured
+					</script>
 				</section>
-				
-				<section>
-					<section id="development" class="title-slide slide level1">
-						<h1>Development environment</h1>
-					</section>
+			
+				<section id="deployment" data-markdown data-separator="^\n-----\n$" data-separator-vertical="^\n----\n$">
+					<script type="text/template">
+						## Packaging and Deployment
+
+						----
+
+						### Workflows
+						- possibly [Docker](https://www.docker.com/) (included in development box)
+						- testing multiple instances with Docker or multi-machine with Vagrant
+
+						----
+
+						### Deployment
+						- a slim Virtualbox for local deployments (with or without internet access)
+						- Docker-based deployments
+						- or non-install, cloud-based (only internet required)
+						- customized RaspberryPi SD-card image 
+					</script>
 				</section>
-				
-				<section>
-					<section id="deployment" class="title-slide slide level1">
-						<h1>Packaging and Deployment</h1>
-					</section>
+			
+				<section id="the-end" class="title-slide slide level1">
+					<h1>Thank you! Questions?</h1>
+					<p>This Presentation:<br><a href="https://foobarlab.github.io/downstage-concept/downstage-ideas.html">https://foobarlab.github.io/downstage-concept/downstage-ideas.html</a></p>
+					<p>My Github:<br><a href="https://github.com/foobarlab/">https://github.com/foobarlab/</a></p>
 				</section>
 				
 			</div>
@@ -102,6 +320,10 @@
 			Reveal.initialize({
 				hash: true,
 				slideNumber: true,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
