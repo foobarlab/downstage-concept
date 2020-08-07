@@ -152,9 +152,9 @@
 
 						### Message Broker: [RabbitMQ](https://www.rabbitmq.com/)
 						- proxies for single-point of connection
-						- asynchroneous with queues
-						- polyglott, ready for multiple languages
+						- asynchroneous with queues (decoupling)
 						- distribute work to consumers (pubsub)
+						- polyglott, ready for multiple integrations
 						- Erlang-based, fits into ecosystem
 					</script>
 				</section>
@@ -170,7 +170,7 @@
 						- grants access provided the &quot;key&quot; matches
 						- enforcing policies
 						- easy to &quot;hand-over permission&quot; to do something
-						- fast wrapping &quot;commands&quot;
+						- wrapping &quot;commands&quot; with permissions
 
 						----
 
@@ -215,6 +215,7 @@
 						- versioning included
 						- could run in a cluster
 						- [accepting eventual consistency](http://guide.couchdb.org/draft/consistency.html)
+						- fits into ecosystem: Erlang-based
 
 						----
 
@@ -261,6 +262,14 @@
 						- Live-coding Shaders: [Shadertoy](https://www.shadertoy.com/)
 						- Visual coding: [Scratch](https://scratch.mit.edu/)
 						- Demoscene: [Werkzeug4](http://www.farbrausch.com/prod&which=168.py)
+
+						----
+
+						### Challenges
+						- engine bindings (what to connect?)
+						- language bindings (which language? multiple ones?)
+						- local (browser) and/or server-sided?
+						- worth looking at others first
 					</script>
 				</section>
 			
@@ -271,11 +280,11 @@
 						----
 
 						### [Vagrant](https://www.vagrantup.com/)
-						- [VirtualBox](https://www.virtualbox.org/) virtual machine running [Funtoo GNU/Linux](https://www.funtoo.org/)
 						- configured by [Packer](https://www.packer.io/) and [Ansible](https://docs.ansible.com/)
+						- [VirtualBox](https://www.virtualbox.org/) virtual machine running [Funtoo GNU/Linux](https://www.funtoo.org/)
 						- Under construction: [Vagrant development box](https://github.com/foobarlab/development-packer)
 						- portable environment suited for major OS like Apple Mac, Windows and Linux
-						- all-in-one package: all tools and services pre-compiled and pre-configured
+						- all-in-one package: all tools and services pre-compiled and pre-configured, just download and start coding
 					</script>
 				</section>
 			
@@ -286,12 +295,13 @@
 						----
 
 						### Workflows
+						- Development, Testing, Staging, Production
 						- possibly [Docker](https://www.docker.com/) (included in development box)
 						- testing multiple instances with Docker or multi-machine with Vagrant
 
 						----
 
-						### Deployment
+						### Releases
 						- a slim Virtualbox for local deployments (with or without internet access)
 						- Docker-based deployments
 						- or non-install, cloud-based (only internet required)
