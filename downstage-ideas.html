@@ -14,36 +14,76 @@
 		<div class="reveal">
 			<div class="slides">
 				
-				<section id="title-slide">
-					<h1 class="title"><small>DownStage Concept Ideas</small></h1>
-					<p class="subtitle">An engine for a platform for Cyberformance</p>
+				<section id="intro">
+					<h1 class="title"><small>DownStage</small></h1>
+					<p class="subtitle">Ideas for an engine and framework for a platform for Cyberformance</p>
 					<p class="author">Martin Eisenbarth / foobarlab.net</p>
 					<p class="date">7 August 2020</p>
 				</section>
-	
-				<section id="TOC">
-					<ul>
-						<li><a href="#/one">Slide 1</a></li>
-						<li><a href="#/two">Slide 2</a></li>
-						<li><a href="#/three">Slide 3</a></li>
-					</ul>
-				</section>
-	
+				
 				<section>
-					<section id="one" class="title-slide slide level1">
-						<h1>One</h1>
+					<section id="functional" class="title-slide slide level1">
+						<h1>Functional approach</h1>
 					</section>
 				</section>
 				
 				<section>
-					<section id="two" class="title-slide slide level1">
-						<h1>Two</h1>
+					<section id="framework" class="title-slide slide level1">
+						<h1>Framework approach</h1>
 					</section>
 				</section>
 				
 				<section>
-					<section id="three" class="title-slide slide level1">
-						<h1>three</h1>
+					<section id="security" class="title-slide slide level1">
+						<h1>Capability based security</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="building-blocks" class="title-slide slide level1">
+						<h1>Building blocks for on stage objects</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="decoupling-services" class="title-slide slide level1">
+						<h1>Decoupling services</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="generative-code" class="title-slide slide level1">
+						<h1>Generative and Live-Coding experience</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="persistance" class="title-slide slide level1">
+						<h1>Persistence</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="events" class="title-slide slide level1">
+						<h1>CQRS and Event Sourcing</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="scheduler" class="title-slide slide level1">
+						<h1>Internal Scheduler and Synchronization</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="development" class="title-slide slide level1">
+						<h1>Development environment</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section id="deployment" class="title-slide slide level1">
+						<h1>Packaging and Deployment</h1>
 					</section>
 				</section>
 				
@@ -54,15 +94,17 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				slideNumber: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
 		</script>
 	</body>
